@@ -7,12 +7,17 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 
 /**
  * Created by jorda on 5/18/2018.
  */
 
 public class Utils {
+
+    public static ArrayList<News> fetchNewsData(String newsCategory){
+
+    }
 
 
     /**
@@ -76,6 +81,8 @@ public class Utils {
             // Read next line
             line = bufferedReader.readLine();
         }
+
+        return stringBuilder.toString();
     }
 }
 

@@ -32,13 +32,13 @@ public class Utils {
         }
 
         // API request and
-        ArrayList<News> articles = parseJson("test");
-//        try{
-//            String jsonResponse = makeHttpRequest(url);
-//            articles = parseJson(jsonResponse);
-//        }catch (IOException e){
-//            e.printStackTrace();
-//        }
+        ArrayList<News> articles = null;
+        try{
+            String jsonResponse = makeHttpRequest(url);
+            articles = parseJson(jsonResponse);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
 
         return articles;
     }

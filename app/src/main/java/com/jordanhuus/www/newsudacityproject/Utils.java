@@ -1,5 +1,8 @@
 package com.jordanhuus.www.newsudacityproject;
 
+import android.net.Uri;
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,12 +23,20 @@ import java.util.ArrayList;
 
 public class Utils {
 
-    public static ArrayList<News> fetchNewsData(String newsCategory){
-//        String urlString = "http://content.guardianapis.com/search?q=debates&api-key=2f433fae-3b8c-4a71-866a-0d326fde047a";
-        String urlString = "http://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2014-01-01&api-key=2f433fae-3b8c-4a71-866a-0d326fde047a";
+    private static final String GUARDIAN_API_KEY = "2f433fae-3b8c-4a71-866a-0d326fde047a";
 
-        // TODO: build URL object using URI, allow user to add a new tag and search for title keywords within a chosen tag
-        // Example: tag=technology & q=android
+    public static ArrayList<News> fetchNewsData(String newsCategory){
+
+        Uri.Builder builder = new Uri.Builder();
+        builder.scheme("http");
+        builder.authority("content.guardianapis.com");
+        builder.appendPath("search");
+        builder.appendQueryParameter("tag", newsCategory + "/" + newsCategory);
+        builder.appendQueryParameter("from-date", "2018-05-01");
+        builder.appendQueryParameter("api-key", GUARDIAN_API_KEY);
+
+        // Get url string from
+        String urlString = builder.build().toString();
 
         // Build URL
         URL url = null;
@@ -34,6 +45,8 @@ public class Utils {
         }catch (MalformedURLException e){
             e.printStackTrace();
         }
+
+        Log.i("debugtag", url.toString());
 
         // API request and
         ArrayList<News> articles = null;

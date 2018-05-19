@@ -32,13 +32,13 @@ public class Utils {
         }
 
         // API request and
-        ArrayList<News> articles = new ArrayList<>();
-        try{
-            String jsonResponse = makeHttpRequest(url);
-            articles = parseJson(jsonResponse);
-        }catch (IOException e){
-            e.printStackTrace();
-        }
+        ArrayList<News> articles = parseJson("test");
+//        try{
+//            String jsonResponse = makeHttpRequest(url);
+//            articles = parseJson(jsonResponse);
+//        }catch (IOException e){
+//            e.printStackTrace();
+//        }
 
         return articles;
     }
@@ -56,6 +56,8 @@ public class Utils {
 
         // Init empty news ArrayList
         ArrayList<News> articles = new ArrayList<>();
+
+        jsonString = getPlaceholderJson();
 
 
         try{
@@ -85,7 +87,7 @@ public class Utils {
                 String publicationDate = article.getString("webPublicationDate");
 
                 // Store new News object
-                articles.add(new News(title, publicationDate, articleUrlString));
+                articles.add(new News(title, articleUrlString, publicationDate));
             }
         }catch (JSONException e){
             e.printStackTrace();

@@ -1,11 +1,14 @@
 package com.jordanhuus.www.newsudacityproject;
 
+import android.app.FragmentTransaction;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -20,42 +23,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_view_pager);
 
-        // Init LoaderManager
-        loaderManager = getSupportLoaderManager();
-        if(savedInstanceState!=null){
-            loaderManager.initLoader(NEWS_LOADER_ID, null, MainActivity.this);
-        }
+        // Init ViewPager adapter
+        MainPagerAdapter adapter = new MainPagerAdapter(getSupportFragmentManager());
 
-        // Setup category onClick
-        Button technology = findViewById(R.id.technology_button);
-        technology.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                newsCategory = "technology";
-                loaderManager.restartLoader(NEWS_LOADER_ID, null, MainActivity.this);
-            }
-        });
-
-        Button politics = findViewById(R.id.politics_button);
-        politics.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                newsCategory = "politics";
-                loaderManager.restartLoader(NEWS_LOADER_ID, null, MainActivity.this);
-            }
-        });
-
-        Button business = findViewById(R.id.business_button);
-        business.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                newsCategory = "business";
-                loaderManager.restartLoader(NEWS_LOADER_ID, null, MainActivity.this);
-            }
-        });
-
+        // Set ViewPager adapter
+        ViewPager viewPager = findViewById(R.id.main_view_pager);
+        viewPager.setAdapter(adapter);
     }
 
     private void updateUi(ArrayList<News> articles){

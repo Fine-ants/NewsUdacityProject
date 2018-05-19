@@ -4,11 +4,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/randomTextIdentifier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Categories view fragment"
-        android:layout_centerInParent="true"/>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:columnCount="3">
+
+        <Button
+            android:id="@+id/technology_button"
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            android:layout_margin="8dp"
+            android:text="Tech"/>
+
+        <Button
+            android:id="@+id/politics_button"
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            android:layout_margin="8dp"
+            android:text="Politics"/>
+
+        <Button
+            android:id="@+id/business_button"
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            android:layout_margin="8dp"
+            android:text="Business"/>
+
+        <Button
+            android:id="@+id/usa_button"
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            android:layout_margin="8dp"
+            android:text="USA"/>
+
+        <Button
+            android:id="@+id/local_button"
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            android:layout_margin="8dp"
+            android:text="Local"/>
+
+        <Button
+            android:id="@+id/world_button"
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            android:layout_margin="8dp"
+            android:text="World"/>
+    </GridLayout>
 
 </RelativeLayout>

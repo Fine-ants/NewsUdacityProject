@@ -21,7 +21,11 @@ import java.util.ArrayList;
 public class Utils {
 
     public static ArrayList<News> fetchNewsData(String newsCategory){
-        String urlString = "http://content.guardianapis.com/search?q=debates&api-key=2f433fae-3b8c-4a71-866a-0d326fde047a";
+//        String urlString = "http://content.guardianapis.com/search?q=debates&api-key=2f433fae-3b8c-4a71-866a-0d326fde047a";
+        String urlString = "http://content.guardianapis.com/search?q=debate&tag=politics/politics&from-date=2014-01-01&api-key=2f433fae-3b8c-4a71-866a-0d326fde047a";
+
+        // TODO: build URL object using URI, allow user to add a new tag and search for title keywords within a chosen tag
+        // Example: tag=technology & q=android
 
         // Build URL
         URL url = null;
@@ -56,9 +60,6 @@ public class Utils {
 
         // Init empty news ArrayList
         ArrayList<News> articles = new ArrayList<>();
-
-        jsonString = getPlaceholderJson();
-
 
         try{
             // Root JSON

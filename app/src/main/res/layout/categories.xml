@@ -5,51 +5,47 @@
     android:layout_height="match_parent">
 
     <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:orientation="horizontal"
-        android:columnCount="3">
+        android:columnCount="3"
+        android:useDefaultMargins="true">
 
         <Button
             android:id="@+id/technology_button"
             android:layout_width="104dp"
             android:layout_height="104dp"
-            android:layout_margin="8dp"
             android:text="Tech"/>
 
         <Button
             android:id="@+id/politics_button"
             android:layout_width="104dp"
             android:layout_height="104dp"
-            android:layout_margin="8dp"
             android:text="Politics"/>
 
         <Button
             android:id="@+id/business_button"
             android:layout_width="104dp"
             android:layout_height="104dp"
-            android:layout_margin="8dp"
             android:text="Business"/>
 
         <Button
             android:id="@+id/usa_button"
             android:layout_width="104dp"
             android:layout_height="104dp"
-            android:layout_margin="8dp"
             android:text="USA"/>
 
         <Button
             android:id="@+id/local_button"
             android:layout_width="104dp"
             android:layout_height="104dp"
-            android:layout_margin="8dp"
             android:text="Local"/>
 
         <Button
             android:id="@+id/world_button"
             android:layout_width="104dp"
             android:layout_height="104dp"
-            android:layout_margin="8dp"
             android:text="World"/>
     </GridLayout>
 

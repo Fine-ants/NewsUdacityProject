@@ -1,5 +1,9 @@
 package com.jordanhuus.www.newsudacityproject;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,7 +23,7 @@ public class Utils {
     public static ArrayList<News> fetchNewsData(String newsCategory){
         String urlString = "http://content.guardianapis.com/search?q=debates&api-key=2f433fae-3b8c-4a71-866a-0d326fde047a";
 
-
+        // Build URL
         URL url = null;
         try{
             url = new URL(urlString);
@@ -27,13 +31,67 @@ public class Utils {
             e.printStackTrace();
         }
 
-        String jsonResponse = "";
-        ArrayList<News> news_items = new ArrayList<>();
+        // API request and
+        ArrayList<News> articles = new ArrayList<>();
         try{
-            makeHttpRequest(url);
+            String jsonResponse = makeHttpRequest(url);
+            articles = parseJson(jsonResponse);
         }catch (IOException e){
             e.printStackTrace();
         }
+
+        return articles;
+    }
+
+
+    public static ArrayList<News> parseJson(String jsonString){
+
+        /**
+         * API traversal paths:
+         *   Url                -     response->results[webUrl]
+         *   Title              -     response->results[webUrl]
+         *   Publication Date   -     response->results[webPublicationDate]
+          */
+
+
+        // Init empty news ArrayList
+        ArrayList<News> articles = new ArrayList<>();
+
+
+        try{
+            // Root JSON
+            JSONObject root = new JSONObject(jsonString);
+
+            // Response JSON
+            JSONObject response = root.getJSONObject("response");
+
+            // Results JSON Array
+            JSONArray results = response.getJSONArray("results");
+
+
+            // Loop through array of articles
+            for(int i=0; i<results.length(); i++) {
+
+                // Article JSON
+                JSONObject article = results.getJSONObject(i);
+
+                // Article Url
+                String articleUrlString = article.getString("webUrl");
+
+                // Article Title
+                String title = article.getString("webTitle");
+
+                // Article Publication Date
+                String publicationDate = article.getString("webPublicationDate");
+
+                // Store new News object
+                articles.add(new News(title, publicationDate, articleUrlString));
+            }
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+
+        return articles;
     }
 
 

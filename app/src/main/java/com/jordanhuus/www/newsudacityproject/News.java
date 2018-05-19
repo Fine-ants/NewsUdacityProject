@@ -6,32 +6,25 @@ package com.jordanhuus.www.newsudacityproject;
 
 public class News {
 
-    private String headLine;
-    private String article;
-    private long time;
-    private String editor;
+    private String title;
+    private String webUrl;
+    private String publicationDate;
 
-    public News(String headLine, String article, long time, String editor) {
-        this.headLine = headLine;
-        this.article = article;
-        this.time = time;
-        this.editor = editor;
+    public News(String title, String webUrl, String publicationDate) {
+        this.title = title;
+        this.webUrl = webUrl;
+        this.publicationDate = publicationDate;
     }
 
-
-    public String getHeadLine() {
-        return headLine;
+    public String getTitle() {
+        return title;
     }
 
-    public String getArticle() {
-        return article;
+    public String getWebUrl() {
+        return webUrl;
     }
 
-    public long getTime() {
-        return time;
-    }
-
-    public String getEditor() {
-        return editor;
+    public String getPublicationDate() {
+        return publicationDate;
     }
 }

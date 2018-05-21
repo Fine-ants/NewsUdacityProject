@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,21 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
         loaderManager.initLoader(NEWS_LOADER_ID, null, this);
 
         return root;
+    }
+
+    public void chooseNewCategory(String newsCategory){
+        this.newsCategory = newsCategory;
+
+        if(getActivity() == null){
+            Log.i("debugtag", "parent activity null");
+        }
+
+//        try {
+//            loaderManager = getActivity().getSupportLoaderManager();
+//            loaderManager.initLoader(NEWS_LOADER_ID, null, this);
+//        }catch (NullPointerException e){
+//            e.printStackTrace();
+//        }
     }
 
     private void updateUi(ArrayList<News> articles){

@@ -16,37 +16,43 @@
             android:id="@+id/technology_button"
             android:layout_width="104dp"
             android:layout_height="104dp"
-            android:text="Tech"/>
+            android:text="Tech"
+            android:tag="technology"/>
 
         <Button
             android:id="@+id/politics_button"
             android:layout_width="104dp"
             android:layout_height="104dp"
-            android:text="Politics"/>
+            android:text="Politics"
+            android:tag="politics"/>
 
         <Button
             android:id="@+id/business_button"
             android:layout_width="104dp"
             android:layout_height="104dp"
-            android:text="Business"/>
+            android:text="Business"
+            android:tag="business"/>
 
         <Button
             android:id="@+id/usa_button"
             android:layout_width="104dp"
             android:layout_height="104dp"
-            android:text="USA"/>
+            android:text="USA"
+            android:tag="usa"/>
 
         <Button
             android:id="@+id/local_button"
             android:layout_width="104dp"
             android:layout_height="104dp"
-            android:text="Local"/>
+            android:text="Local"
+            android:tag="local"/>
 
         <Button
             android:id="@+id/world_button"
             android:layout_width="104dp"
             android:layout_height="104dp"
-            android:text="World"/>
+            android:text="World"
+            android:tag="world"/>
     </GridLayout>
 
 </RelativeLayout>

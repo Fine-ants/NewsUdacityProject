@@ -9,9 +9,11 @@ import android.support.v4.app.FragmentStatePagerAdapter;
  */
 
 public class MainPagerAdapter extends FragmentStatePagerAdapter {
+    private int currentFragmentIndex;
 
     public MainPagerAdapter(FragmentManager fm) {
         super(fm);
+        currentFragmentIndex = 0;
     }
 
     @Override
@@ -28,8 +30,14 @@ public class MainPagerAdapter extends FragmentStatePagerAdapter {
                 break;
         }
 
+        currentFragmentIndex = position;
+
         return mainPageFragment;
-    }
+   }
+
+   public int getCurrentFragmentPosition(){
+        return currentFragmentIndex;
+   }
 
     @Override
     public int getCount() {

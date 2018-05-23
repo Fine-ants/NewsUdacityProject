@@ -85,4 +85,28 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
     public void onLoaderReset(@NonNull Loader<ArrayList<News>> loader) {
         updateUi(new ArrayList<News>());
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i("debugtag", "onPause()");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.i("debugtag", "onStop()");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i("debugtag", "onDestroy()");
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Log.i("debugtag", "onDetach()");
+    }
 }

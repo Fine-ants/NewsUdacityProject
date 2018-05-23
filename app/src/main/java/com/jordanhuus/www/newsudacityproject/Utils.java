@@ -70,6 +70,8 @@ public class Utils {
          *   Publication Date   -     response->results[webPublicationDate]
           */
 
+        Log.i("debugtag", jsonString);
+
 
         // Init empty news ArrayList
         ArrayList<News> articles = new ArrayList<>();

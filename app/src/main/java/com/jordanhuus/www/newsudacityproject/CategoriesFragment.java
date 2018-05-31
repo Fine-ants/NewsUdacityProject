@@ -1,6 +1,7 @@
 package com.jordanhuus.www.newsudacityproject;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 /**
  * Created by jordanhuus on 5/19/2018.
@@ -52,6 +55,15 @@ public class CategoriesFragment extends Fragment {
         public void onClick(View view) {
             chosenCategoryTag = view.getTag().toString();
             Log.i("debugtag", chosenCategoryTag);
+
+            // Check for network connectivity
+            ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+            if(connectivityManager.getActiveNetworkInfo()==null || !connectivityManager.getActiveNetworkInfo().isConnected()){
+
+                // Toast - No connection found
+                Toast.makeText(mainActivity, "No Internet Connection", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             mainActivity.clickCategory(chosenCategoryTag);
         }

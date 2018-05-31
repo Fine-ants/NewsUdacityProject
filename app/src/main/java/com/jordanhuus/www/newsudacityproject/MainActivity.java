@@ -9,6 +9,7 @@ import android.util.Log;
 
 public class MainActivity extends AppCompatActivity implements CategoriesFragment.OnCategoryClickListener{
     private MainPagerAdapter adapter;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,14 +20,16 @@ public class MainActivity extends AppCompatActivity implements CategoriesFragmen
         adapter = new MainPagerAdapter(getSupportFragmentManager());
 
         // Set ViewPager adapter
-        ViewPager viewPager = findViewById(R.id.main_view_pager);
+        viewPager = findViewById(R.id.main_view_pager);
         viewPager.setAdapter(adapter);
     }
 
 
     @Override
     public void clickCategory(String categoryName) {
+        viewPager.setCurrentItem(0);
         Fragment currentDisplayFragment = adapter.getItem(0);
+
 
         try {
             MainPageFragment mainPageFragment = (MainPageFragment) currentDisplayFragment;

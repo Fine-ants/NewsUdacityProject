@@ -58,12 +58,16 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
         return root;
     }
 
+
+    /**
+     * Retrieves data fromm chosen category and displays result
+     * @param newsCategory global variable; users chosen category from CategoriesFragment; used to fetch JSON
+     */
     public void chooseNewCategory(String newsCategory){
         this.newsCategory = newsCategory;
 
-
-        //
-        if(getActivity() == null){
+        MainActivity mainActivity = (MainActivity) getContext();
+        if(mainActivity == null){
             Log.i("debugtag", "parent activity null");
         }
 

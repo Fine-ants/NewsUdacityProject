@@ -44,10 +44,10 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
         // Check for network connectivity
         ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         if(connectivityManager.getActiveNetworkInfo()==null || !connectivityManager.getActiveNetworkInfo().isConnected()){
+            // Display message that no connection was found
             TextView noConnectionMessage = root.findViewById(R.id.activity_main_no_connection);
             noConnectionMessage.setText("No Internet Connection");
 
-            // TODO: set display to notify user that internet connectivity is not available
             return root;
         }
 

@@ -61,6 +61,8 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
     public void chooseNewCategory(String newsCategory){
         this.newsCategory = newsCategory;
 
+
+        //
         if(getActivity() == null){
             Log.i("debugtag", "parent activity null");
         }

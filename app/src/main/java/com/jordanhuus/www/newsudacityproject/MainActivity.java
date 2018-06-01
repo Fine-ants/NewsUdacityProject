@@ -3,6 +3,7 @@ package com.jordanhuus.www.newsudacityproject;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.view.ViewPager;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.util.Log;
 public class MainActivity extends AppCompatActivity implements CategoriesFragment.OnCategoryClickListener{
     private MainPagerAdapter adapter;
     private ViewPager viewPager;
+    private MainPageFragment mainPageFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,16 +29,16 @@ public class MainActivity extends AppCompatActivity implements CategoriesFragmen
 
     @Override
     public void clickCategory(String categoryName) {
+        // Switch ViewPager to display MainPageFragment
         viewPager.setCurrentItem(0);
-        Fragment currentDisplayFragment = adapter.getItem(0);
 
-
-        try {
-            MainPageFragment mainPageFragment = (MainPageFragment) currentDisplayFragment;
+        if(mainPageFragment!=null){
             mainPageFragment.chooseNewCategory(categoryName);
-        }catch(ClassCastException e){
-            e.printStackTrace();
         }
+    }
+
+    public void setMainPageFragment(MainPageFragment mainPageFragment) {
+        this.mainPageFragment = mainPageFragment;
     }
 }
 

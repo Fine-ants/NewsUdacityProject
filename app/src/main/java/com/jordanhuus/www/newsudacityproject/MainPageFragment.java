@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -27,11 +26,23 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
     private static final int NEWS_LOADER_ID = 1;
     private String newsCategory;
     private View root;
+    private MainActivity mainActivity;
 
     public static MainPageFragment newInstance(){
         return new MainPageFragment();
     }
 
+    /**
+     * Retrieves global MainActivity object
+     * @param context from MainActivitys
+     */
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        mainActivity = (MainActivity) context;
+        mainActivity.setMainPageFragment(this);
+    }
 
     @Nullable
     @Override
@@ -42,7 +53,7 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
         newsCategory = "politics"; /* Placeholder */
 
         // Check for network connectivity
-        ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager) mainActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
         if(connectivityManager.getActiveNetworkInfo()==null || !connectivityManager.getActiveNetworkInfo().isConnected()){
             // Display message that no connection was found
             TextView noConnectionMessage = root.findViewById(R.id.activity_main_no_connection);
@@ -52,7 +63,7 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
         }
 
         // Restart loader
-        loaderManager = getActivity().getSupportLoaderManager();
+        loaderManager = mainActivity.getSupportLoaderManager();
         loaderManager.initLoader(NEWS_LOADER_ID, null, this);
 
         return root;
@@ -66,22 +77,18 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
     public void chooseNewCategory(String newsCategory){
         this.newsCategory = newsCategory;
 
-        MainActivity mainActivity = (MainActivity) getContext();
-        if(mainActivity == null){
-            Log.i("debugtag", "parent activity null");
+        try {
+            loaderManager = mainActivity.getSupportLoaderManager();
+            loaderManager.restartLoader(NEWS_LOADER_ID, null, this);
+            Log.i("debugtag", "loadermananger restarted");
+        }catch (NullPointerException e){
+            e.printStackTrace();
         }
-
-//        try {
-//            loaderManager = getActivity().getSupportLoaderManager();
-//            loaderManager.initLoader(NEWS_LOADER_ID, null, this);
-//        }catch (NullPointerException e){
-//            e.printStackTrace();
-//        }
     }
 
     private void updateUi(ArrayList<News> articles){
         // List View adapter
-        NewsAdapter adapter = new NewsAdapter(getActivity(), R.layout.news_list_item, articles);
+        NewsAdapter adapter = new NewsAdapter(mainActivity, R.layout.news_list_item, articles);
 
         // Set adapter to List View
         ListView newsListView = root.findViewById(R.id.news_items_list_view);
@@ -91,7 +98,7 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
     @NonNull
     @Override
     public Loader<ArrayList<News>> onCreateLoader(int id, @Nullable Bundle args) {
-        return new NewsLoader(getActivity(), newsCategory);
+        return new NewsLoader(mainActivity, newsCategory);
     }
 
     @Override

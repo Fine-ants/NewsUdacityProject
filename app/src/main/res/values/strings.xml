@@ -2,4 +2,26 @@
     <string name="app_name">NewsUdacityProject</string>
     <string name="search_button">Search</string>
     <string name="search_editText_hint">Search News</string>
+
+    <!-- News Category Button Text -->
+    <string name="category_tech">Technology</string>
+    <string name="category_business">Business</string>
+    <string name="category_politics">Politics</string>
+    <string name="category_weather">Weather</string>
+    <string name="category_sports">Sports</string>
+    <string name="category_entertainment">Entertainment</string>
+    <string name="category_science">Science</string>
+    <string name="category_health">Health</string>
+    <string name="category_world">World</string>
+
+    <!-- News Category Tags -->
+    <string name="category_tech_tag">technology/technology</string>
+    <string name="category_business_tag">business/business</string>
+    <string name="category_politics_tag">us-news/us-politics</string>
+    <string name="category_weather_tag">weather/usa</string>
+    <string name="category_sports_tag">theguardian/sport</string>
+    <string name="category_entertainment_tag">media/19entertainment</string>
+    <string name="category_science_tag">science/science</string>
+    <string name="category_health_tag">health/health</string>
+    <string name="category_world_tag">world/world</string>
 </resources>

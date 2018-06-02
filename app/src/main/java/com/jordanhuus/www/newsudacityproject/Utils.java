@@ -33,7 +33,7 @@ public class Utils {
         builder.appendPath("search");
         builder.appendQueryParameter("from-date", "2018-05-01");
         if(isCategory){
-            builder.appendQueryParameter("tag", searchItem+"/"+searchItem);
+            builder.appendQueryParameter("tag", searchItem);
         }else{
             builder.appendQueryParameter("q", searchItem);
         }

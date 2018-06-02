@@ -46,8 +46,35 @@
                 android:id="@+id/technology_button"
                 android:layout_width="104dp"
                 android:layout_height="104dp"
-                android:text="Tech"
-                android:tag="technology"
+                android:text="@string/category_tech"
+                android:tag="@string/category_tech_tag"
+                android:textColor="@color/textPrimaryLight"
+                android:backgroundTint="@color/foregroundDark"/>
+
+            <Button
+                android:id="@+id/science_button"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:text="@string/category_science"
+                android:tag="@string/category_science_tag"
+                android:textColor="@color/textPrimaryLight"
+                android:backgroundTint="@color/foregroundDark"/>
+
+            <Button
+                android:id="@+id/health_button"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:text="@string/category_health"
+                android:tag="@string/category_health_tag"
+                android:textColor="@color/textPrimaryLight"
+                android:backgroundTint="@color/foregroundDark"/>
+
+            <Button
+                android:id="@+id/weather_button"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:text="@string/category_weather"
+                android:tag="@string/category_weather_tag"
                 android:textColor="@color/textPrimaryLight"
                 android:backgroundTint="@color/foregroundDark"/>
 
@@ -55,8 +82,8 @@
                 android:id="@+id/politics_button"
                 android:layout_width="104dp"
                 android:layout_height="104dp"
-                android:text="Politics"
-                android:tag="politics"
+                android:text="@string/category_politics"
+                android:tag="@string/category_politics_tag"
                 android:textColor="@color/textPrimaryLight"
                 android:backgroundTint="@color/foregroundDark"/>
 
@@ -64,26 +91,26 @@
                 android:id="@+id/business_button"
                 android:layout_width="104dp"
                 android:layout_height="104dp"
-                android:text="Business"
-                android:tag="business"
+                android:text="@string/category_business"
+                android:tag="@string/category_business_tag"
                 android:textColor="@color/textPrimaryLight"
                 android:backgroundTint="@color/foregroundDark"/>
 
             <Button
-                android:id="@+id/usa_button"
+                android:id="@+id/sports_button"
                 android:layout_width="104dp"
                 android:layout_height="104dp"
-                android:text="USA"
-                android:tag="usa"
+                android:text="@string/category_sports"
+                android:tag="@string/category_sports_tag"
                 android:textColor="@color/textPrimaryLight"
                 android:backgroundTint="@color/foregroundDark"/>
 
             <Button
-                android:id="@+id/local_button"
+                android:id="@+id/entertainment_button"
                 android:layout_width="104dp"
                 android:layout_height="104dp"
-                android:text="Local"
-                android:tag="local"
+                android:text="@string/category_entertainment"
+                android:tag="@string/category_entertainment_tag"
                 android:textColor="@color/textPrimaryLight"
                 android:backgroundTint="@color/foregroundDark"/>
 
@@ -91,8 +118,8 @@
                 android:id="@+id/world_button"
                 android:layout_width="104dp"
                 android:layout_height="104dp"
-                android:text="World"
-                android:tag="world"
+                android:text="@string/category_world"
+                android:tag="@string/category_world_tag"
                 android:textColor="@color/textPrimaryLight"
                 android:backgroundTint="@color/foregroundDark"/>
         </GridLayout>

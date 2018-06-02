@@ -10,7 +10,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,19 +50,21 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.activity_main, container, false);
+        root = inflater.inflate(R.layout.articles_list_view, container, false);
 
         // Retrieve newsCategory from bundle
         newsCategory = "politics"; /* Placeholder */
 
         // Check for network connectivity
+        TextView noConnectionMessage= root.findViewById(R.id.activity_main_no_connection);
         ConnectivityManager connectivityManager = (ConnectivityManager) mainActivity.getSystemService(Context.CONNECTIVITY_SERVICE);
         if(connectivityManager.getActiveNetworkInfo()==null || !connectivityManager.getActiveNetworkInfo().isConnected()){
             // Display message that no connection was found
-            TextView noConnectionMessage = root.findViewById(R.id.activity_main_no_connection);
             noConnectionMessage.setText("No Internet Connection");
 
             return root;
+        }else{
+            noConnectionMessage.setText("");
         }
 
         // Restart loader
@@ -97,6 +98,10 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
         // Set adapter to List View
         ListView newsListView = root.findViewById(R.id.news_items_list_view);
         newsListView.setAdapter(adapter);
+
+        // Set empty ListView message
+        TextView emptyListView = root.findViewById(R.id.no_articles_found);
+        newsListView.setEmptyView(emptyListView);
 
         // User clicks List Item(news article)
         newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

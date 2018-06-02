@@ -2,6 +2,7 @@
     <string name="app_name">NewsUdacityProject</string>
     <string name="search_button">Search</string>
     <string name="search_editText_hint">Search News</string>
+    <string name="no_articles_found">No Articles Found</string>
 
     <!-- News Category Button Text -->
     <string name="category_tech">Technology</string>

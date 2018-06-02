@@ -14,10 +14,12 @@ import java.util.ArrayList;
 public class NewsLoader extends AsyncTaskLoader<ArrayList<News>> {
 
     private String newsCategory;
+    private boolean isNewsCategory;
 
-    public NewsLoader(@NonNull Context context, @NonNull String newsCategory) {
+    public NewsLoader(@NonNull Context context, @NonNull String newsCategory, @NonNull boolean isNewsCategory) {
         super(context);
         this.newsCategory = newsCategory;
+        this.isNewsCategory = isNewsCategory;
     }
 
     @Override
@@ -28,6 +30,6 @@ public class NewsLoader extends AsyncTaskLoader<ArrayList<News>> {
     @Nullable
     @Override
     public ArrayList<News> loadInBackground() {
-        return Utils.fetchNewsData(newsCategory);
+        return Utils.fetchNewsData(newsCategory, isNewsCategory);
     }
 }

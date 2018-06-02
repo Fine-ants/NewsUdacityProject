@@ -52,7 +52,7 @@ public class CategoriesFragment extends Fragment {
 
                 //
                 if(!keyword.isEmpty()){
-                    mainActivity.clickCategory(keyword);
+                    mainActivity.clickCategory(keyword, false);
                 }
             }
         });
@@ -91,13 +91,14 @@ public class CategoriesFragment extends Fragment {
                 return;
             }
 
-            mainActivity.clickCategory(chosenCategoryTag);
+            // Pass the chosen news category to MainPageFragment
+            mainActivity.clickCategory(chosenCategoryTag, true);
         }
     }
 
     // Inner Interface for parent activity (MainActivity)
     public interface OnCategoryClickListener{
-        public void clickCategory(String categoryName);
+        public void clickCategory(String categoryName, boolean isNewsCategory);
     }
 
 

@@ -25,18 +25,23 @@ public class Utils {
 
     private static final String GUARDIAN_API_KEY = "2f433fae-3b8c-4a71-866a-0d326fde047a";
 
-    public static ArrayList<News> fetchNewsData(String newsCategory){
+    public static ArrayList<News> fetchNewsData(String searchItem, boolean isCategory){
 
         Uri.Builder builder = new Uri.Builder();
         builder.scheme("http");
         builder.authority("content.guardianapis.com");
         builder.appendPath("search");
         builder.appendQueryParameter("from-date", "2018-05-01");
-        builder.appendQueryParameter("q", newsCategory);
+        if(isCategory){
+            builder.appendQueryParameter("tag", searchItem+"/"+searchItem);
+        }else{
+            builder.appendQueryParameter("q", searchItem);
+        }
         builder.appendQueryParameter("api-key", GUARDIAN_API_KEY);
 
         // Get url string from
         String urlString = builder.build().toString();
+        Log.i("debugtag", urlString);
 
         // Build URL
         URL url = null;

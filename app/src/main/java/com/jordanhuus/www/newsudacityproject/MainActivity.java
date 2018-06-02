@@ -35,12 +35,12 @@ public class MainActivity extends AppCompatActivity implements CategoriesFragmen
 
 
     @Override
-    public void clickCategory(String categoryName) {
+    public void clickCategory(String categoryName, boolean isNewsCategory) {
         // Switch ViewPager to display MainPageFragment
         viewPager.setCurrentItem(0);
 
         if(mainPageFragment!=null){
-            mainPageFragment.chooseNewCategory(categoryName);
+            mainPageFragment.chooseNewCategory(categoryName, isNewsCategory);
         }
     }
 

@@ -28,6 +28,7 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
     private LoaderManager loaderManager;
     private static final int NEWS_LOADER_ID = 1;
     private String newsCategory;
+    private boolean isNewsCategory;
     private View root;
     private MainActivity mainActivity;
 
@@ -77,8 +78,9 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
      * Retrieves data fromm chosen category and displays result
      * @param newsCategory global variable; users chosen category from CategoriesFragment; used to fetch JSON
      */
-    public void chooseNewCategory(String newsCategory){
+    public void chooseNewCategory(String newsCategory, boolean isNewsCategory){
         this.newsCategory = newsCategory;
+        this.isNewsCategory = isNewsCategory;
 
         try {
             loaderManager = mainActivity.getSupportLoaderManager();
@@ -114,7 +116,7 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
     @NonNull
     @Override
     public Loader<ArrayList<News>> onCreateLoader(int id, @Nullable Bundle args) {
-        return new NewsLoader(mainActivity, newsCategory);
+        return new NewsLoader(mainActivity, newsCategory, isNewsCategory);
     }
 
     @Override

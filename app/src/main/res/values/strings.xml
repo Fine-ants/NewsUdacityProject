@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">NewsUdacityProject</string>
+    <string name="search_button">Search</string>
+    <string name="search_editText_hint">Search News</string>
 </resources>

@@ -3,13 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/backgroundDark">
 
     <EditText
         android:id="@+id/search_news_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search News"
+        android:hint="@string/search_editText_hint"
+        android:textColorHint="@color/textPrimaryLight"
         android:backgroundTint="#9bdc3e"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
@@ -17,11 +19,13 @@
     
     <Button
         android:id="@+id/Search"
-        android:text="Search"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:text="@string/search_button"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="@color/textPrimaryDark"
+        android:background="@color/foregroundLight"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -35,6 +39,7 @@
             android:orientation="horizontal"
             android:columnCount="3"
             android:useDefaultMargins="true"
+            android:paddingTop="16dp"
             android:layout_below="@id/categories_gridLayout">
 
             <Button
@@ -42,42 +47,54 @@
                 android:layout_width="104dp"
                 android:layout_height="104dp"
                 android:text="Tech"
-                android:tag="technology"/>
+                android:tag="technology"
+                android:textColor="@color/textPrimaryLight"
+                android:backgroundTint="@color/foregroundDark"/>
 
             <Button
                 android:id="@+id/politics_button"
                 android:layout_width="104dp"
                 android:layout_height="104dp"
                 android:text="Politics"
-                android:tag="politics"/>
+                android:tag="politics"
+                android:textColor="@color/textPrimaryLight"
+                android:backgroundTint="@color/foregroundDark"/>
 
             <Button
                 android:id="@+id/business_button"
                 android:layout_width="104dp"
                 android:layout_height="104dp"
                 android:text="Business"
-                android:tag="business"/>
+                android:tag="business"
+                android:textColor="@color/textPrimaryLight"
+                android:backgroundTint="@color/foregroundDark"/>
 
             <Button
                 android:id="@+id/usa_button"
                 android:layout_width="104dp"
                 android:layout_height="104dp"
                 android:text="USA"
-                android:tag="usa"/>
+                android:tag="usa"
+                android:textColor="@color/textPrimaryLight"
+                android:backgroundTint="@color/foregroundDark"/>
 
             <Button
                 android:id="@+id/local_button"
                 android:layout_width="104dp"
                 android:layout_height="104dp"
                 android:text="Local"
-                android:tag="local"/>
+                android:tag="local"
+                android:textColor="@color/textPrimaryLight"
+                android:backgroundTint="@color/foregroundDark"/>
 
             <Button
                 android:id="@+id/world_button"
                 android:layout_width="104dp"
                 android:layout_height="104dp"
                 android:text="World"
-                android:tag="world"/>
+                android:tag="world"
+                android:textColor="@color/textPrimaryLight"
+                android:backgroundTint="@color/foregroundDark"/>
         </GridLayout>
 
         <android.support.design.widget.FloatingActionButton

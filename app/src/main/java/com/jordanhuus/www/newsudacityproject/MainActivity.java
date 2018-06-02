@@ -1,12 +1,10 @@
 package com.jordanhuus.www.newsudacityproject;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.LoaderManager;
 import android.support.v4.view.ViewPager;
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.design.widget.TabLayout;
+
 
 public class MainActivity extends AppCompatActivity implements CategoriesFragment.OnCategoryClickListener{
     private MainPagerAdapter adapter;
@@ -21,9 +19,15 @@ public class MainActivity extends AppCompatActivity implements CategoriesFragmen
         // Init ViewPager adapter
         adapter = new MainPagerAdapter(getSupportFragmentManager());
 
-        // Set ViewPager adapter
+        // Retrieve
         viewPager = findViewById(R.id.main_view_pager);
+        TabLayout tableLayout = findViewById(R.id.tab_layout);
+
+        // Set ViewPager adapter
         viewPager.setAdapter(adapter);
+
+        // Setup Tab Layout
+        tableLayout.setupWithViewPager(viewPager);
     }
 
 

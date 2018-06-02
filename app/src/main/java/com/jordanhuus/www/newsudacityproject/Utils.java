@@ -31,12 +31,13 @@ public class Utils {
         builder.scheme("http");
         builder.authority("content.guardianapis.com");
         builder.appendPath("search");
-        builder.appendQueryParameter("tag", newsCategory + "/" + newsCategory);
         builder.appendQueryParameter("from-date", "2018-05-01");
+        builder.appendQueryParameter("q", newsCategory);
         builder.appendQueryParameter("api-key", GUARDIAN_API_KEY);
 
         // Get url string from
         String urlString = builder.build().toString();
+        Log.i("debugtag", urlString);
 
         // Build URL
         URL url = null;

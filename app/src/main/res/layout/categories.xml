@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/backgroundDark">
+    android:background="@color/backgroundDark"
+    android:orientation="vertical">
 
     <EditText
         android:id="@+id/search_news_keyword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/search_editText_hint"
-        android:textColorHint="@color/textPrimaryLight"
-        android:backgroundTint="#9bdc3e"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
-    
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#9bdc3e"
+        android:hint="@string/search_editText_hint"
+        android:textColorHint="@color/textPrimaryLight" />
+
     <Button
         android:id="@+id/search_button"
-        android:text="@string/search_button"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/textPrimaryDark"
-        android:background="@color/foregroundLight"/>
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@color/foregroundLight"
+        android:text="@string/search_button"
+        android:textColor="@color/textPrimaryDark" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -35,102 +35,102 @@
             android:id="@+id/categories_gridLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/categories_gridLayout"
             android:layout_centerHorizontal="true"
-            android:orientation="horizontal"
             android:columnCount="3"
-            android:useDefaultMargins="true"
+            android:orientation="horizontal"
             android:paddingTop="16dp"
-            android:layout_below="@id/categories_gridLayout">
+            android:useDefaultMargins="true">
 
             <Button
                 android:id="@+id/technology_button"
-                android:layout_width="104dp"
+                android:layout_width="120dp"
                 android:layout_height="104dp"
-                android:text="@string/category_tech"
+                android:backgroundTint="@color/foregroundDark"
                 android:tag="@string/category_tech_tag"
-                android:textColor="@color/textPrimaryLight"
-                android:backgroundTint="@color/foregroundDark"/>
+                android:text="@string/category_tech"
+                android:textColor="@color/textPrimaryLight" />
 
             <Button
                 android:id="@+id/science_button"
-                android:layout_width="104dp"
+                android:layout_width="120dp"
                 android:layout_height="104dp"
-                android:text="@string/category_science"
+                android:backgroundTint="@color/foregroundDark"
                 android:tag="@string/category_science_tag"
-                android:textColor="@color/textPrimaryLight"
-                android:backgroundTint="@color/foregroundDark"/>
+                android:text="@string/category_science"
+                android:textColor="@color/textPrimaryLight" />
 
             <Button
                 android:id="@+id/health_button"
-                android:layout_width="104dp"
+                android:layout_width="120dp"
                 android:layout_height="104dp"
-                android:text="@string/category_health"
+                android:backgroundTint="@color/foregroundDark"
                 android:tag="@string/category_health_tag"
-                android:textColor="@color/textPrimaryLight"
-                android:backgroundTint="@color/foregroundDark"/>
+                android:text="@string/category_health"
+                android:textColor="@color/textPrimaryLight" />
 
             <Button
                 android:id="@+id/weather_button"
-                android:layout_width="104dp"
+                android:layout_width="120dp"
                 android:layout_height="104dp"
-                android:text="@string/category_weather"
+                android:backgroundTint="@color/foregroundDark"
                 android:tag="@string/category_weather_tag"
-                android:textColor="@color/textPrimaryLight"
-                android:backgroundTint="@color/foregroundDark"/>
+                android:text="@string/category_weather"
+                android:textColor="@color/textPrimaryLight" />
 
             <Button
                 android:id="@+id/politics_button"
-                android:layout_width="104dp"
+                android:layout_width="120dp"
                 android:layout_height="104dp"
-                android:text="@string/category_politics"
+                android:backgroundTint="@color/foregroundDark"
                 android:tag="@string/category_politics_tag"
-                android:textColor="@color/textPrimaryLight"
-                android:backgroundTint="@color/foregroundDark"/>
+                android:text="@string/category_politics"
+                android:textColor="@color/textPrimaryLight" />
 
             <Button
                 android:id="@+id/business_button"
-                android:layout_width="104dp"
+                android:layout_width="120dp"
                 android:layout_height="104dp"
-                android:text="@string/category_business"
+                android:backgroundTint="@color/foregroundDark"
                 android:tag="@string/category_business_tag"
-                android:textColor="@color/textPrimaryLight"
-                android:backgroundTint="@color/foregroundDark"/>
+                android:text="@string/category_business"
+                android:textColor="@color/textPrimaryLight" />
 
             <Button
                 android:id="@+id/sports_button"
-                android:layout_width="104dp"
+                android:layout_width="120dp"
                 android:layout_height="104dp"
-                android:text="@string/category_sports"
+                android:backgroundTint="@color/foregroundDark"
                 android:tag="@string/category_sports_tag"
-                android:textColor="@color/textPrimaryLight"
-                android:backgroundTint="@color/foregroundDark"/>
+                android:text="@string/category_sports"
+                android:textColor="@color/textPrimaryLight" />
 
             <Button
                 android:id="@+id/entertainment_button"
-                android:layout_width="104dp"
+                android:layout_width="120dp"
                 android:layout_height="104dp"
-                android:text="@string/category_entertainment"
+                android:backgroundTint="@color/foregroundDark"
                 android:tag="@string/category_entertainment_tag"
-                android:textColor="@color/textPrimaryLight"
-                android:backgroundTint="@color/foregroundDark"/>
+                android:text="@string/category_entertainment"
+                android:textColor="@color/textPrimaryLight" />
 
             <Button
                 android:id="@+id/world_button"
-                android:layout_width="104dp"
+                android:layout_width="120dp"
                 android:layout_height="104dp"
-                android:text="@string/category_world"
+                android:backgroundTint="@color/foregroundDark"
                 android:tag="@string/category_world_tag"
-                android:textColor="@color/textPrimaryLight"
-                android:backgroundTint="@color/foregroundDark"/>
+                android:text="@string/category_world"
+                android:textColor="@color/textPrimaryLight" />
         </GridLayout>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_add_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:backgroundTint="#9bdc3e"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentRight="true"
+            android:layout_margin="16dp"
+            android:backgroundTint="#9bdc3e" />
     </RelativeLayout>
 </LinearLayout>

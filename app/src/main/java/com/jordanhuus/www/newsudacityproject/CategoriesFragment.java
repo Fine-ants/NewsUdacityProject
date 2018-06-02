@@ -52,7 +52,7 @@ public class CategoriesFragment extends Fragment {
 
                 //
                 if(!keyword.isEmpty()){
-                    mainActivity.clickCategory(keyword, false);
+                    mainActivity.clickCategory("Articles", keyword, false);
                 }
             }
         });
@@ -89,6 +89,9 @@ public class CategoriesFragment extends Fragment {
         @Override
         public void onClick(View view) {
             chosenCategoryTag = view.getTag().toString();
+            Button button = (Button) view;
+            String chosenCategoryTitle = button.getText().toString();
+
 
             // Check for network connectivity
             ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -100,13 +103,13 @@ public class CategoriesFragment extends Fragment {
             }
 
             // Pass the chosen news category to MainPageFragment
-            mainActivity.clickCategory(chosenCategoryTag, true);
+            mainActivity.clickCategory(chosenCategoryTitle, chosenCategoryTag, true);
         }
     }
 
     // Inner Interface for parent activity (MainActivity)
     public interface OnCategoryClickListener{
-        public void clickCategory(String categoryName, boolean isNewsCategory);
+        public void clickCategory(String buttonTitle, String categoryName, boolean isNewsCategory);
     }
 
 

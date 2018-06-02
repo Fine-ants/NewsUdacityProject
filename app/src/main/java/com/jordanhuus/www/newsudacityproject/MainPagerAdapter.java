@@ -4,17 +4,16 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.util.Log;
 
 /**
  * Created by jordanhuus on 5/19/2018.
  */
 
 public class MainPagerAdapter extends FragmentStatePagerAdapter {
-    private int currentFragmentIndex;
 
     public MainPagerAdapter(FragmentManager fm) {
         super(fm);
-        currentFragmentIndex = 0;
     }
 
     @Override
@@ -30,8 +29,6 @@ public class MainPagerAdapter extends FragmentStatePagerAdapter {
             default:
                 break;
         }
-
-        currentFragmentIndex = position;
 
         return mainPageFragment;
    }

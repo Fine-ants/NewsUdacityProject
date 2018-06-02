@@ -9,7 +9,7 @@
     <string name="category_politics">Politics</string>
     <string name="category_weather">Weather</string>
     <string name="category_sports">Sports</string>
-    <string name="category_entertainment">Entertainment</string>
+    <string name="category_entertainment">Media</string>
     <string name="category_science">Science</string>
     <string name="category_health">Health</string>
     <string name="category_world">World</string>
@@ -22,6 +22,6 @@
     <string name="category_sports_tag">theguardian/sport</string>
     <string name="category_entertainment_tag">media/19entertainment</string>
     <string name="category_science_tag">science/science</string>
-    <string name="category_health_tag">health/health</string>
+    <string name="category_health_tag">society/health</string>
     <string name="category_world_tag">world/world</string>
 </resources>

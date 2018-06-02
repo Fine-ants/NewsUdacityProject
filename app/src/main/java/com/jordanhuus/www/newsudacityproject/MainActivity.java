@@ -10,6 +10,7 @@ import android.support.design.widget.TabLayout;
 public class MainActivity extends AppCompatActivity implements CategoriesFragment.OnCategoryClickListener{
     private MainPagerAdapter adapter;
     private ViewPager viewPager;
+    private TabLayout tabLayout;
     private MainPageFragment mainPageFragment;
 
     @Override
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements CategoriesFragmen
 
         // Retrieve
         viewPager = findViewById(R.id.main_view_pager);
-        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        tabLayout = findViewById(R.id.tab_layout);
 
         // Set ViewPager adapter
         viewPager.setAdapter(adapter);
@@ -35,10 +36,15 @@ public class MainActivity extends AppCompatActivity implements CategoriesFragmen
 
 
     @Override
-    public void clickCategory(String categoryName, boolean isNewsCategory) {
+    public void clickCategory(String buttonTitle, String categoryName, boolean isNewsCategory) {
         // Switch ViewPager to display MainPageFragment
         viewPager.setCurrentItem(0);
 
+        // TabLayout title
+        tabLayout.getTabAt(0).setText(buttonTitle);
+
+
+        // Pass data to MainPageFragment
         if(mainPageFragment!=null){
             mainPageFragment.chooseNewCategory(categoryName, isNewsCategory);
         }

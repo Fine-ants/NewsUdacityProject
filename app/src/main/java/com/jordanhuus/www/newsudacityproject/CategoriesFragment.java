@@ -54,7 +54,6 @@ public class CategoriesFragment extends Fragment {
         @Override
         public void onClick(View view) {
             chosenCategoryTag = view.getTag().toString();
-            Log.i("debugtag", chosenCategoryTag);
 
             // Check for network connectivity
             ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);

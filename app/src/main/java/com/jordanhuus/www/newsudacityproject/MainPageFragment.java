@@ -1,7 +1,9 @@
 package com.jordanhuus.www.newsudacityproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -80,19 +83,32 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
         try {
             loaderManager = mainActivity.getSupportLoaderManager();
             loaderManager.restartLoader(NEWS_LOADER_ID, null, this);
-            Log.i("debugtag", "loadermananger restarted");
         }catch (NullPointerException e){
             e.printStackTrace();
         }
     }
 
-    private void updateUi(ArrayList<News> articles){
+    private void updateUi(final ArrayList<News> articles){
         // List View adapter
         NewsAdapter adapter = new NewsAdapter(mainActivity, R.layout.news_list_item, articles);
 
         // Set adapter to List View
         ListView newsListView = root.findViewById(R.id.news_items_list_view);
         newsListView.setAdapter(adapter);
+
+        // User clicks List Item(news article)
+        newsListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                // Retrieve article URL
+                String articleUrl = articles.get(i).getWebUrl();
+
+                // Open Chrome to article URL
+                Intent openUrl = new Intent(Intent.ACTION_VIEW);
+                openUrl.setData(Uri.parse(articleUrl));
+                startActivity(openUrl);
+            }
+        });
     }
 
     @NonNull
@@ -111,29 +127,5 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
     @Override
     public void onLoaderReset(@NonNull Loader<ArrayList<News>> loader) {
         updateUi(new ArrayList<News>());
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.i("debugtag", "onPause()");
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        Log.i("debugtag", "onStop()");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.i("debugtag", "onDestroy()");
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        Log.i("debugtag", "onDetach()");
     }
 }

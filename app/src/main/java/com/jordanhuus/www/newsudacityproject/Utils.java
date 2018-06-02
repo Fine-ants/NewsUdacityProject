@@ -37,7 +37,6 @@ public class Utils {
 
         // Get url string from
         String urlString = builder.build().toString();
-        Log.i("debugtag", urlString);
 
         // Build URL
         URL url = null;
@@ -46,8 +45,6 @@ public class Utils {
         }catch (MalformedURLException e){
             e.printStackTrace();
         }
-
-        Log.i("debugtag", url.toString());
 
         // API request and
         ArrayList<News> articles = null;
@@ -61,19 +58,17 @@ public class Utils {
         return articles;
     }
 
-
+    /**
+     *  Converts JSON response into News Objects
+     * @param jsonString String returned from Http API request
+     * @return ArrayList of News Objects ready to be passed to ListView inside MainPageFragment
+     *
+     *   API traversal path:
+     *   Url                -     response->results[webUrl]
+     *   Title              -     response->results[webUrl]
+     *   Publication Date   -     response->results[webPublicationDate]
+     */
     public static ArrayList<News> parseJson(String jsonString){
-
-        /**
-         * API traversal paths:
-         *   Url                -     response->results[webUrl]
-         *   Title              -     response->results[webUrl]
-         *   Publication Date   -     response->results[webPublicationDate]
-          */
-
-        Log.i("debugtag", jsonString);
-
-
         // Init empty news ArrayList
         ArrayList<News> articles = new ArrayList<>();
 

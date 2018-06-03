@@ -41,7 +41,6 @@ public class Utils {
 
         // Get url string from
         String urlString = builder.build().toString();
-        Log.i("debugtag", urlString);
 
         // Build URL
         URL url = null;

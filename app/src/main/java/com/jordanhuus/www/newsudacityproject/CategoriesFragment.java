@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -26,6 +27,7 @@ public class CategoriesFragment extends Fragment {
 
     private MainActivity mainActivity;
     private String chosenCategoryTag;
+    private ArrayList<Category> categories;
 
     public static CategoriesFragment newInstance(){
         return new CategoriesFragment();
@@ -60,7 +62,7 @@ public class CategoriesFragment extends Fragment {
             }
         });
 
-        ArrayList<Category> categories = new ArrayList<>();
+        categories = new ArrayList<>();
         categories.add(new Category(getString(R.string.category_tech_tag),getString(R.string.category_tech),R.drawable.baseline_memory_white_18dp));
         categories.add(new Category(getString(R.string.category_science_tag),getString(R.string.category_science),R.drawable.science_white_icon));
         categories.add(new Category(getString(R.string.category_health_tag),getString(R.string.category_health),R.drawable.baseline_fitness_center_white_18dp));
@@ -75,6 +77,17 @@ public class CategoriesFragment extends Fragment {
         CategoriesAdapter adapter = new CategoriesAdapter(getContext(), R.layout.category_list_item, categories);
         ListView categoriesList = root.findViewById(R.id.categories_list_view);
         categoriesList.setAdapter(adapter);
+        categoriesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                // Retrieve the chosen category title, api category tag
+                String chosenCategoryTitle = categories.get(i).getCategoryTitle();
+                String chosenCategoryTag = categories.get(i).getCategoryApiTag();
+
+                // Pass parameters to MainPageFragment
+                mainActivity.clickCategory(chosenCategoryTitle, chosenCategoryTag, true);
+            }
+        });
 
         return root;
     }

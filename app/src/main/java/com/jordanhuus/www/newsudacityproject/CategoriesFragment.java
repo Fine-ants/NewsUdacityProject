@@ -61,15 +61,15 @@ public class CategoriesFragment extends Fragment {
         });
 
         ArrayList<Category> categories = new ArrayList<>();
-        categories.add(new Category(getString(R.string.category_tech_tag),getString(R.string.category_tech),R.drawable.baseline_computer_white_18dp));
-        categories.add(new Category(getString(R.string.category_science_tag),getString(R.string.category_science),0));
-        categories.add(new Category(getString(R.string.category_health_tag),getString(R.string.category_health),0));
+        categories.add(new Category(getString(R.string.category_tech_tag),getString(R.string.category_tech),R.drawable.baseline_memory_white_18dp));
+        categories.add(new Category(getString(R.string.category_science_tag),getString(R.string.category_science),R.drawable.science_white_icon));
+        categories.add(new Category(getString(R.string.category_health_tag),getString(R.string.category_health),R.drawable.baseline_fitness_center_white_18dp));
         categories.add(new Category(getString(R.string.category_weather_tag),getString(R.string.category_weather),R.drawable.baseline_cloud_white_18dp));
-        categories.add(new Category(getString(R.string.category_business_tag),getString(R.string.category_business),0));
-        categories.add(new Category(getString(R.string.category_politics_tag),getString(R.string.category_politics),R.drawable.baseline_business_white_18dp));
+        categories.add(new Category(getString(R.string.category_business_tag),getString(R.string.category_business),R.drawable.baseline_business_white_18dp));
+        categories.add(new Category(getString(R.string.category_politics_tag),getString(R.string.category_politics),R.drawable.baseline_account_balance_white_18dp));
         categories.add(new Category(getString(R.string.category_sports_tag),getString(R.string.category_sports),R.drawable.baseline_directions_bike_white_18dp));
-        categories.add(new Category(getString(R.string.category_world_tag),getString(R.string.category_world),0));
-        categories.add(new Category(getString(R.string.category_entertainment_tag),getString(R.string.category_entertainment),0));
+        categories.add(new Category(getString(R.string.category_world_tag),getString(R.string.category_world),R.drawable.baseline_public_white_18dp));
+        categories.add(new Category(getString(R.string.category_entertainment_tag),getString(R.string.category_entertainment),R.drawable.baseline_local_movies_white_18dp));
 
         // Setup Categories ListView
         CategoriesAdapter adapter = new CategoriesAdapter(getContext(), R.layout.category_list_item, categories);

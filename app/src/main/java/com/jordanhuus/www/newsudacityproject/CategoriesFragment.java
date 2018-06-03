@@ -12,8 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 /**
  * Created by jordanhuus on 5/19/2018.
@@ -57,29 +60,21 @@ public class CategoriesFragment extends Fragment {
             }
         });
 
+        ArrayList<Category> categories = new ArrayList<>();
+        categories.add(new Category(getString(R.string.category_business_tag),getString(R.string.category_business),0));
+        categories.add(new Category(getString(R.string.category_business_tag),getString(R.string.category_business),0));
+        categories.add(new Category(getString(R.string.category_business_tag),getString(R.string.category_business),0));
+        categories.add(new Category(getString(R.string.category_business_tag),getString(R.string.category_business),0));
+        categories.add(new Category(getString(R.string.category_business_tag),getString(R.string.category_business),0));
+        categories.add(new Category(getString(R.string.category_business_tag),getString(R.string.category_business),0));
+        categories.add(new Category(getString(R.string.category_business_tag),getString(R.string.category_business),0));
+        categories.add(new Category(getString(R.string.category_business_tag),getString(R.string.category_business),0));
+        categories.add(new Category(getString(R.string.category_business_tag),getString(R.string.category_business),0));
 
-        // Buttons
-        Button weather = root.findViewById(R.id.weather_button);
-        Button technology = root.findViewById(R.id.technology_button);
-        Button business = root.findViewById(R.id.business_button);
-        Button politics = root.findViewById(R.id.politics_button);
-        Button world = root.findViewById(R.id.world_button);
-        Button sports = root.findViewById(R.id.sports_button);
-        Button science = root.findViewById(R.id.science_button);
-        Button health = root.findViewById(R.id.health_button);
-        Button entertainment = root.findViewById(R.id.entertainment_button);
-
-        // Set news categories onClickListeners
-        View.OnClickListener categoryOnClickListener = new CustomOnclickListener();
-        technology.setOnClickListener(categoryOnClickListener);
-        business.setOnClickListener(categoryOnClickListener);
-        politics.setOnClickListener(categoryOnClickListener);
-        entertainment.setOnClickListener(categoryOnClickListener);
-        world.setOnClickListener(categoryOnClickListener);
-        sports.setOnClickListener(categoryOnClickListener);
-        science.setOnClickListener(categoryOnClickListener);
-        health.setOnClickListener(categoryOnClickListener);
-        weather.setOnClickListener(categoryOnClickListener);
+        // Setup Categories ListView
+        CategoriesAdapter adapter = new CategoriesAdapter(getContext(), R.layout.category_list_item, categories);
+        ListView categoriesList = root.findViewById(R.id.categories_list_view);
+        categoriesList.setAdapter(adapter);
 
         return root;
     }

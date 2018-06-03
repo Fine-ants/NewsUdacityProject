@@ -124,13 +124,5 @@
                 android:textColor="@color/textPrimaryLight" />
         </GridLayout>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_add_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_margin="16dp"
-            android:backgroundTint="#9bdc3e" />
     </RelativeLayout>
 </LinearLayout>

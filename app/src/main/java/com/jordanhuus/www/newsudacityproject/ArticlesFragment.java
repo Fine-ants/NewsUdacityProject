@@ -10,7 +10,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +23,7 @@ import java.util.ArrayList;
  * Created by jordanhuus on 5/19/2018.
  */
 
-public class MainPageFragment extends Fragment implements LoaderManager.LoaderCallbacks<ArrayList<News>>{
+public class ArticlesFragment extends Fragment implements LoaderManager.LoaderCallbacks<ArrayList<News>>{
     private LoaderManager loaderManager;
     private static final int NEWS_LOADER_ID = 1;
     private String newsCategory;
@@ -32,8 +31,8 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
     private View root;
     private MainActivity mainActivity;
 
-    public static MainPageFragment newInstance(){
-        return new MainPageFragment();
+    public static ArticlesFragment newInstance(){
+        return new ArticlesFragment();
     }
 
     /**
@@ -45,7 +44,7 @@ public class MainPageFragment extends Fragment implements LoaderManager.LoaderCa
         super.onAttach(context);
 
         mainActivity = (MainActivity) context;
-        mainActivity.setMainPageFragment(this);
+        mainActivity.setArticlesFragment(this);
     }
 
     @Nullable

@@ -65,7 +65,7 @@ public class Utils {
     /**
      *  Converts JSON response into News Objects
      * @param jsonString String returned from Http API request
-     * @return ArrayList of News Objects ready to be passed to ListView inside MainPageFragment
+     * @return ArrayList of News Objects ready to be passed to ListView inside ArticlesFragment
      *
      *   API traversal path:
      *   Url                -     response->results[webUrl]

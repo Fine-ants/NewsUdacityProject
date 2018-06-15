@@ -8,10 +8,10 @@ import android.support.design.widget.TabLayout;
 
 
 public class MainActivity extends AppCompatActivity implements CategoriesFragment.OnCategoryClickListener{
-    private MainPagerAdapter adapter;
+    private MainActivityPagerAdapter adapter;
     private ViewPager viewPager;
     private TabLayout tabLayout;
-    private MainPageFragment mainPageFragment;
+    private ArticlesFragment articlesFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements CategoriesFragmen
         setContentView(R.layout.main_view_pager);
 
         // Init ViewPager adapter
-        adapter = new MainPagerAdapter(getSupportFragmentManager());
+        adapter = new MainActivityPagerAdapter(getSupportFragmentManager());
 
         // Retrieve
         viewPager = findViewById(R.id.main_view_pager);
@@ -37,21 +37,21 @@ public class MainActivity extends AppCompatActivity implements CategoriesFragmen
 
     @Override
     public void clickCategory(String buttonTitle, String categoryName, boolean isNewsCategory) {
-        // Switch ViewPager to display MainPageFragment
+        // Switch ViewPager to display ArticlesFragment
         viewPager.setCurrentItem(0);
 
         // TabLayout title
         tabLayout.getTabAt(0).setText(buttonTitle);
 
 
-        // Pass data to MainPageFragment
-        if(mainPageFragment!=null){
-            mainPageFragment.chooseNewCategory(categoryName, isNewsCategory);
+        // Pass data to ArticlesFragment
+        if(articlesFragment !=null){
+            articlesFragment.chooseNewCategory(categoryName, isNewsCategory);
         }
     }
 
-    public void setMainPageFragment(MainPageFragment mainPageFragment) {
-        this.mainPageFragment = mainPageFragment;
+    public void setArticlesFragment(ArticlesFragment articlesFragment) {
+        this.articlesFragment = articlesFragment;
     }
 }
 

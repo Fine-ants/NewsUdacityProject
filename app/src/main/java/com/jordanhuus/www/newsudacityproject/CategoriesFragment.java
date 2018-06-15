@@ -84,7 +84,7 @@ public class CategoriesFragment extends Fragment {
                 String chosenCategoryTitle = categories.get(i).getCategoryTitle();
                 String chosenCategoryTag = categories.get(i).getCategoryApiTag();
 
-                // Pass parameters to MainPageFragment
+                // Pass parameters to ArticlesFragment
                 mainActivity.clickCategory(chosenCategoryTitle, chosenCategoryTag, true);
             }
         });
@@ -110,7 +110,7 @@ public class CategoriesFragment extends Fragment {
                 return;
             }
 
-            // Pass the chosen news category to MainPageFragment
+            // Pass the chosen news category to ArticlesFragment
             mainActivity.clickCategory(chosenCategoryTitle, chosenCategoryTag, true);
         }
     }

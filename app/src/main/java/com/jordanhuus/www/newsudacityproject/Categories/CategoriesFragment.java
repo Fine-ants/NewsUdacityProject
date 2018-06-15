@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.jordanhuus.www.newsudacityproject.Categories.Model.Category;
+import com.jordanhuus.www.newsudacityproject.Categories.Presenter.CategoriesPresenter;
 import com.jordanhuus.www.newsudacityproject.MainActivity;
 import com.jordanhuus.www.newsudacityproject.R;
 
@@ -30,6 +32,7 @@ public class CategoriesFragment extends Fragment {
     private MainActivity mainActivity;
     private String chosenCategoryTag;
     private ArrayList<Category> categories;
+    private CategoriesPresenter presenter;
 
     public static CategoriesFragment newInstance(){
         return new CategoriesFragment();
@@ -102,18 +105,8 @@ public class CategoriesFragment extends Fragment {
             Button button = (Button) view;
             String chosenCategoryTitle = button.getText().toString();
 
-
-            // Check for network connectivity
-            ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-            if(connectivityManager.getActiveNetworkInfo()==null || !connectivityManager.getActiveNetworkInfo().isConnected()){
-
-                // Toast - No connection found
-                Toast.makeText(mainActivity, "No Internet Connection", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            // Pass the chosen news category to ArticlesFragment
-            mainActivity.clickCategory(chosenCategoryTitle, chosenCategoryTag, true);
+            // Display the chosen news category
+            presenter.clickNewsCategory(chosenCategoryTitle, chosenCategoryTag);
         }
     }
 
@@ -123,13 +116,26 @@ public class CategoriesFragment extends Fragment {
     }
 
 
-    // Retrieve and store parent activity (MainActivity)
+    /**
+     * onAttach is used to retrieve MainActivity object
+     * onAttach is called before onCreateView
+     * @param context parent activity(MainActivity) context
+     */
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
 
         try{
+            // Retrieve and store parent activity (MainActivity)
             mainActivity = (MainActivity) context;
+
+            // Ensure CategoriesPresenter init
+            if(presenter==null) {
+                presenter = new CategoriesPresenter(this);
+            }
+
+            // Pass MainActivity to CategoriesPresenter
+            presenter.setMainActivity(mainActivity);
         }catch (ClassCastException e){
             e.printStackTrace();
         }

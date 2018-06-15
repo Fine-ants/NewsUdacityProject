@@ -1,4 +1,4 @@
-package com.jordanhuus.www.newsudacityproject.Presenter;
+package com.jordanhuus.www.newsudacityproject;
 
 import com.jordanhuus.www.newsudacityproject.MainActivity;
 
@@ -18,7 +18,7 @@ public class NewsPresenter {
     /**
      * @param newsCategory is the user-chosen category
      */
-    public void chooseNewsCategory(String newsCategory, ){
+    public void chooseNewsCategory(String newsCategory, boolean isCategory){
 
     }
 

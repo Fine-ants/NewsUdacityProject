@@ -1,4 +1,4 @@
-package com.jordanhuus.www.newsudacityproject.View;
+package com.jordanhuus.www.newsudacityproject;
 
 /**
  * Created by jordanhuus on 6/15/2018.

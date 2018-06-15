@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 
+import com.jordanhuus.www.newsudacityproject.Articles.ArticlesFragment;
+import com.jordanhuus.www.newsudacityproject.Categories.CategoriesFragment;
+
 
 public class MainActivity extends AppCompatActivity implements CategoriesFragment.OnCategoryClickListener{
     private MainActivityPagerAdapter adapter;

@@ -1,4 +1,4 @@
-package com.jordanhuus.www.newsudacityproject;
+package com.jordanhuus.www.newsudacityproject.Articles;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +16,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.jordanhuus.www.newsudacityproject.Articles.Model.ArticlesLoader;
+import com.jordanhuus.www.newsudacityproject.Articles.Model.News;
+import com.jordanhuus.www.newsudacityproject.MainActivity;
+import com.jordanhuus.www.newsudacityproject.R;
 
 import java.util.ArrayList;
 
@@ -94,7 +99,7 @@ public class ArticlesFragment extends Fragment implements LoaderManager.LoaderCa
 
     private void updateUi(final ArrayList<News> articles){
         // List View adapter
-        NewsAdapter adapter = new NewsAdapter(mainActivity, R.layout.news_list_item, articles);
+        ArticlesAdapter adapter = new ArticlesAdapter(mainActivity, R.layout.news_list_item, articles);
 
         // Set adapter to List View
         ListView newsListView = root.findViewById(R.id.news_items_list_view);
@@ -123,7 +128,7 @@ public class ArticlesFragment extends Fragment implements LoaderManager.LoaderCa
     @NonNull
     @Override
     public Loader<ArrayList<News>> onCreateLoader(int id, @Nullable Bundle args) {
-        return new NewsLoader(mainActivity, newsCategory, isNewsCategory);
+        return new ArticlesLoader(mainActivity, newsCategory, isNewsCategory);
     }
 
     @Override

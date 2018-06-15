@@ -1,4 +1,4 @@
-package com.jordanhuus.www.newsudacityproject;
+package com.jordanhuus.www.newsudacityproject.Articles.Presenter;
 
 import com.jordanhuus.www.newsudacityproject.MainActivity;
 
@@ -6,11 +6,11 @@ import com.jordanhuus.www.newsudacityproject.MainActivity;
  * Created by jordanhuus on 6/15/2018.
  */
 
-public class NewsPresenter {
+public class ArticlesPresenter {
 
     private MainActivity mainActivity;
 
-    public NewsPresenter(MainActivity mainActivity) {
+    public ArticlesPresenter(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
     }
 

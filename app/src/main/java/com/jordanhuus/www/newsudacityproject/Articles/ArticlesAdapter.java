@@ -1,4 +1,4 @@
-package com.jordanhuus.www.newsudacityproject;
+package com.jordanhuus.www.newsudacityproject.Articles;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,15 +9,18 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.jordanhuus.www.newsudacityproject.Articles.Model.News;
+import com.jordanhuus.www.newsudacityproject.R;
+
 import java.util.List;
 
 /**
  * Created by jordanhuus on 5/18/2018.
  */
 
-public class NewsAdapter extends ArrayAdapter<News> {
+public class ArticlesAdapter extends ArrayAdapter<News> {
 
-    public NewsAdapter(@NonNull Context context, int textViewResourceId, @NonNull List<News> objects) {
+    public ArticlesAdapter(@NonNull Context context, int textViewResourceId, @NonNull List<News> objects) {
         super(context, 0, textViewResourceId, objects);
     }
 

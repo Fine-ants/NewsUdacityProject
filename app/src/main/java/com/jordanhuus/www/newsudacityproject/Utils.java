@@ -1,7 +1,8 @@
 package com.jordanhuus.www.newsudacityproject;
 
 import android.net.Uri;
-import android.util.Log;
+
+import com.jordanhuus.www.newsudacityproject.Articles.Model.News;
 
 import org.json.JSONArray;
 import org.json.JSONException;

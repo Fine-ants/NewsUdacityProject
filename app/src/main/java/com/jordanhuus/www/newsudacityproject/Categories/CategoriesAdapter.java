@@ -1,4 +1,4 @@
-package com.jordanhuus.www.newsudacityproject;
+package com.jordanhuus.www.newsudacityproject.Categories;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.jordanhuus.www.newsudacityproject.Categories.Model.Category;
+import com.jordanhuus.www.newsudacityproject.R;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.jordanhuus.www.newsudacityproject;
+package com.jordanhuus.www.newsudacityproject.Articles.Model;
 
 /**
  * Created by jorda on 5/18/2018.

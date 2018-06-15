@@ -5,6 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.jordanhuus.www.newsudacityproject.Articles.ArticlesFragment;
+import com.jordanhuus.www.newsudacityproject.Categories.CategoriesFragment;
+
 /**
  * Created by jordanhuus on 5/19/2018.
  */

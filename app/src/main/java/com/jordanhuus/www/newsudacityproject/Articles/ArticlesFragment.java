@@ -47,6 +47,7 @@ public class ArticlesFragment extends Fragment implements ArticlesView{
     public void onAttach(Context context) {
         super.onAttach(context);
 
+        // Retrieve parent activity(MainActivity)
         mainActivity = (MainActivity) context;
         mainActivity.setArticlesFragment(this);
 
@@ -56,13 +57,21 @@ public class ArticlesFragment extends Fragment implements ArticlesView{
         }
     }
 
+    /**
+     * Inflates the root layout(articles_list_view) and loads data into the ListView
+     * ArticlesPresenter manages the inflation and
+     * @param inflater inflates Layout articles_list_view
+     * @param container parent viewgroup which articles_list_view will reside
+     * @param savedInstanceState state of the parent activity(MainActivity)
+     * @return
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.articles_list_view, container, false);
 
         // Inflate Articles view
-        presenter.inflateArticlesView(root);
+        presenter.loadDefaultResults(root);
 
         return root;
     }

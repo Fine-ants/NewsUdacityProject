@@ -33,12 +33,23 @@ public class ArticlesPresenter implements LoaderManager.LoaderCallbacks<ArrayLis
     private ArticlesFragment articlesFragment;
 
 
+    /**
+     * @param articlesFragment Fragment which this presenter will provide business logic to
+     * @param mainActivity Activity which contains articlesFragment
+     */
     public ArticlesPresenter(ArticlesFragment articlesFragment, MainActivity mainActivity) {
         this.articlesFragment = articlesFragment;
         this.mainActivity = mainActivity;
     }
 
-    public View inflateArticlesView(View root){
+    /**
+     * Begins loading news articles upon first load
+     * Default news category is politics
+     * @param root root View object stored as global variable
+     */
+    public void loadDefaultResults(View root){
+
+        // Store root view as global variable
         this.root = root;
 
         // Init loader manager
@@ -46,12 +57,11 @@ public class ArticlesPresenter implements LoaderManager.LoaderCallbacks<ArrayLis
 
         // Default news search result
         this.chooseNewsCategory("us-politics/us-politics", false);
-
-        return root;
     }
 
 
     /**
+     * Invoked by ArticlesFragment to retrieve and display article data
      * @param newsCategory is the user-chosen category
      */
     public void chooseNewsCategory(String newsCategory, boolean isCategory){
@@ -80,12 +90,24 @@ public class ArticlesPresenter implements LoaderManager.LoaderCallbacks<ArrayLis
         }
     }
 
+    /**
+     * Implemented method from LoaderManager.LoaderCallbacks<ArrayList<News>>
+     * @param id
+     * @param args
+     * @return
+     */
     @NonNull
     @Override
     public Loader<ArrayList<News>> onCreateLoader(int id, @Nullable Bundle args) {
         return new ArticlesLoader(mainActivity, newsCategory, isNewsCategory);
     }
 
+    /**
+     * Implemented method from LoaderManager.LoaderCallbacks<ArrayList<News>>
+     *     - Loader has finished and LoaderManager is now providing results
+     * @param loader Load object which made the Http request and managed by LoaderManager
+     * @param data Result of the Http request; ArrayList of News objects; parsed from JSON
+     */
     @Override
     public void onLoadFinished(@NonNull Loader<ArrayList<News>> loader, ArrayList<News> data) {
         if(data!=null) {
@@ -93,6 +115,11 @@ public class ArticlesPresenter implements LoaderManager.LoaderCallbacks<ArrayLis
         }
     }
 
+    /**
+     * Implemented method from LoaderManager.LoaderCallbacks<ArrayList<News>>
+     *     - Resets(cleans) UI to an empty ArrayList
+     * @param loader
+     */
     @Override
     public void onLoaderReset(@NonNull Loader<ArrayList<News>> loader) {
         articlesFragment.updateUi(new ArrayList<News>());
